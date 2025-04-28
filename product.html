@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fcf1ec;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-image {
+            flex: 1;
+            max-width: 45%;
+            text-align: center;
+        }
+
+        .product-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-details {
+            flex: 1;
+            max-width: 50%;
+            padding: z0px;
+        }
+
+        .product-details h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 24px;
+            color: red;
+            font-weight: bold;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: gray;
+            margin-left: 10px;
+            font-size: 18px;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            margin-left: 80px;
+        }
+
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        .color-option.selected {
+            border: 3px solid black;
+        }
+
+        button {
+            padding: 12px 20px;
+            color: white;
+            background: url(/images/anchor_btn.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            padding: 5px 35px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+       
+
+        @media (max-width: 768px) {
+            .product-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .product-image, .product-details {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="product-wrapper">
+            <div class="product-image">
+                <img id="product-img" src="" alt="Product Image">
+            </div>
+
+<div class="product-details">
+    <h2 id="product-name"></h2>
+    <p class="price" id="product-price"></p>
+
+    <!-- Description Section -->
+    <p id="product-description"></p>
+
+    <div id="color-container">
+        <p><strong>Select Color:</strong></p>
+        <div class="color-options" id="product-colors"></div>
+    </div>
+
+    <button onclick="addToCart()">Add to Cart</button>
+</div>
+
+        </div>
+    </div>
+
+    <script>
+        let selectedColor = "";
+
+        function loadProduct() {
+    const product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+    if (product) {
+        document.getElementById("product-img").src = product.img;
+        document.getElementById("product-name").innerText = product.name;
+        document.getElementById("product-price").innerHTML = `&#x20B9;${product.price} <span class="old-price">&#x20B9;${product.oldPrice}</span>`;
+        
+        document.getElementById("product-description").innerText = product.description || "No description available.";
+
+        const colorContainer = document.getElementById("product-colors");
+        colorContainer.innerHTML = "";
+
+        if (product.colors && product.colors.length > 0) {
+            product.colors.forEach(color => {
+                let colorOption = document.createElement("div");
+                colorOption.classList.add("color-option");
+                colorOption.style.backgroundColor = color.toLowerCase();
+                colorOption.onclick = () => selectColor(color, colorOption);
+                colorContainer.appendChild(colorOption);
+            });
+        } else {
+            document.getElementById("color-container").style.display = "none";
+        }
+    } else {
+        document.body.innerHTML = "<h2>Product not found</h2>";
+    }
+}
+
+
+        function selectColor(color, element) {
+            selectedColor = color;
+            document.querySelectorAll(".color-option").forEach(el => el.classList.remove("selected"));
+            element.classList.add("selected");
+        }
+
+        function addToCart() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+            if (!product) {
+                alert("Error: No product selected.");
+                return;
+            }
+
+            if (!selectedColor && product.colors && product.colors.length > 0) {
+                alert("Please select a color.");
+                return;
+            }
+
+            let existingItem = cart.find(item => item.id === product.id && item.selectedColor === selectedColor);
+
+            if (existingItem) {
+                alert(`${product.name} (${selectedColor}) is already in the cart!`);
+            } else {
+                product.quantity = 1;
+                product.selectedColor = selectedColor;
+                cart.push(product);
+                alert(`${product.name} (${selectedColor}) has been added to the cart!`);
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            window.location.href = "cart.html";
+        }
+
+        document.addEventListener("DOMContentLoaded", loadProduct);
+    </script>
+</body>
+
+</html>

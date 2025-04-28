@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fcf1ec;
+            background: url(/images/bg_repeat.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Lato', sans-serif;
+            color: #333;
+            padding-bottom: 60px;
+            line-height: 1.6;
+        }
+
+        #contact {
+            width: 100%;
+            height: 100%;
+            padding: 20px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin: 0 auto 30px;
+            padding: 30px 0;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 300;
+            font-size: 48px;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            position: relative;
+        }
+
+        .section-header:after {
+            content: '';
+            display: block;
+            width: 190px;
+            height: 3px;
+            background: #d0d3ad;
+            margin: 15px auto 0;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 0 auto;
+            padding: 30px;
+            position: relative;
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(44, 62, 80, 0.15);
+        }
+
+        .form-horizontal {
+            max-width: 500px;
+            width: 100%;
+            padding-right: 30px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f5f7fa;
+            color: #34495e;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control:focus {
+            background-color: #fff;
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-control::placeholder {
+            color: #000000;
+            font-weight: 300;
+        }
+
+        .send-button {
+            background: #d0d3ad;
+            color: rgb(0, 0, 0);
+            border: none;
+            width: 100%;
+            padding: 12px 0;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.2);
+        }
+
+        .send-button:hover {
+            background: #d0d3ad8a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .send-button:active {
+            transform: translateY(1px);
+        }
+
+        .alt-send-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .send-text {
+            margin-left: 10px;
+            font-weight: 500;
+        }
+
+        .direct-contact-container {
+            max-width: 400px;
+            width: 100%;
+            padding-left: 20px;
+            border-left: 1px solid rgba(44, 62, 80, 0.1);
+        }
+
+        .contact-list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .list-item {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        .list-item i {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #d0d3ad;
+            color: rgba(0, 0, 0, 0.667);
+            border-radius: 50%;
+            margin-right: 15px;
+            font-size: 16px;
+        }
+
+        .contact-text {
+            font-size: 16px;
+            color: #34495e;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-text a {
+            color: #34495e;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-text a:hover {
+            color: #3498db;
+        }
+
+        .social-media-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        .social-media-list li {
+            list-style: none;
+            margin: 0 10px;
+        }
+
+        .social-media-list li a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: #d0d3ad;
+            color: rgba(0, 0, 0, 0.507);
+            border-radius: 50%;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .social-media-list li a:hover {
+            transform: translateY(-5px);
+            background: #2980b9;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: rgba(44, 62, 80, 0.1);
+            margin: 30px 0;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 20px;
+            letter-spacing: 1px;
+        }
+
+        @media screen and (max-width: 900px) {
+            .contact-wrapper {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .form-horizontal {
+                max-width: 100%;
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .direct-contact-container {
+                max-width: 100%;
+                border-left: none;
+                border-top: 1px solid rgba(44, 62, 80, 0.1);
+                padding-left: 0;
+                padding-top: 30px;
+            }
+            
+            .section-header {
+                font-size: 36px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .contact-wrapper {
+                padding: 15px;
+            }
+            
+            .form-control {
+                padding: 10px 12px;
+            }
+            
+            .section-header {
+                font-size: 28px;
+                letter-spacing: 2px;
+            }
+            
+            .social-media-list li a {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section id="contact">
+
+        <h1 class="section-header">Contact</h1>
+
+        <div class="contact-wrapper">
+
+            <form id="contact-form" class="form-horizontal" role="form">
+
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" id="name" placeholder="NAME" name="name" value=""
+                            required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input type="email" class="form-control" id="email" placeholder="EMAIL" name="email" value=""
+                            required>
+                    </div>
+                </div>
+
+                <textarea class="form-control" rows="10" placeholder="MESSAGE" name="message" required></textarea>
+
+                <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+                    <div class="alt-send-button">
+                        <i class="fa fa-paper-plane"></i><span class="send-text">SEND</span>
+                    </div>
+                </button>
+
+            </form>
+
+            <div class="direct-contact-container">
+
+                <ul class="contact-list">
+                    <li class="list-item">
+                        <i class="fa fa-map-marker"></i>
+                        <span class="contact-text place">City, State</span>
+                    </li>
+
+                    <li class="list-item">
+                        <i class="fa fa-phone"></i>
+                        <span class="contact-text phone">
+                            <a href="tel:1-212-555-5555" title="Give me a call">(212) 555-2368</a>
+                        </span>
+                    </li>
+
+                    <li class="list-item">
+                        <i class="fa fa-envelope"></i>
+                        <span class="contact-text gmail">
+                            <a href="mailto:#" title="Send me an email">hitmeup@gmail.com</a>
+                        </span>
+                    </li>
+                </ul>
+
+                <hr>
+                <ul class="social-media-list">
+                    <li>
+                        <a href="#" target="_blank" class="contact-icon">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank" class="contact-icon">
+                            <i class="fa-brands fa-codepen"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank" class="contact-icon">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank" class="contact-icon">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+
+                <div class="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet our team of expert designers at Kapaaha">
+    <title>Our Team | Kapaaha</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fcf1ec;
+        }
+
+        .container {
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .team-member {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .team-member:hover img {
+            transform: scale(1.1);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 10px;
+        }
+
+        .team-member:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay h4,
+        .overlay p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">Meet Our Team</h2>
+        <div class="row" id="team-container"></div>
+    </div>
+    <div class="image-container">
+        <div class="image-box">
+            <img src="https://www.kapaaha.com/image/catalog/banner/footer_icon_1.png" alt="100% Authentic Products icon">
+            <div class="text-overlay">100% Authentic<br>Products</div>
+        </div>
+        <div class="image-box">
+            <img src="https://www.kapaaha.com/image/catalog/banner/footer_icon_2.png" alt="Secured Payments icon">
+            <div class="text-overlay">Secured Payments<br>& Flexible Returns</div>
+        </div>
+        <div class="image-box">
+            <img src="https://www.kapaaha.com/image/catalog/banner/footer_icon_3.png" alt="Free Shipping icon">
+            <div class="text-overlay">COD & Free Shipping<br>on orders above 2K</div>
+        </div>
+        <div class="image-box">
+            <img src="https://www.kapaaha.com/image/catalog/banner/footer_icon_4.png" alt="Promote Culture icon">
+            <div class="text-overlay">Be a Part with us<br>& help promote culture</div>
+        </div>
+    </div>
+
+
+    <footer style="margin-top: 100px;">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-about">
+                    <h2>kapaaha</h2>
+                    <p>COLLECTION OF THE GUJARAT SPRING</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Services</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p class="footer-copy">&copy; <span id="current-year"></span> Kapaaha | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "KAPAAHA Woven Navratan Patola Saree (Firozi)",
+                image: "https://images.pexels.com/photos/7205812/pexels-photo-7205812.jpeg?auto=compress&cs=tinysrgb&w=600",
+                role: "Expert Designer"
+            },
+            {
+                id: 2,
+                name: "KAPAAHA Woven Figure Patola Saree (Purple)",
+                image: "https://images.pexels.com/photos/4307692/pexels-photo-4307692.jpeg?auto=compress&cs=tinysrgb&w=600",
+                role: "Expert Designer"
+            },
+            {
+                id: 3,
+                name: "KAPAAHA Woven Navratan Patola Saree (Black)",
+                image: "https://images.pexels.com/photos/1376038/pexels-photo-1376038.jpeg?auto=compress&cs=tinysrgb&w=600",
+                role: "Expert Designer"
+            },
+            {
+                id: 4,
+                name: "KAPAAHA Woven Navratan Patola Saree (Rani)",
+                image: "https://images.pexels.com/photos/29819602/pexels-photo-29819602/free-photo-of-woman-in-traditional-indian-sari-walking-outdoors.jpeg?auto=compress&cs=tinysrgb&w=600",
+                role: "Expert Designer"
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            renderTeamMembers();
+            
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            lazyLoadImages();
+        });
+
+        function renderTeamMembers() {
+            const teamContainer = document.getElementById("team-container");
+            
+            if (!teamContainer) {
+                console.error("Team container element not found");
+                return;
+            }
+            
+            const fragment = document.createDocumentFragment();
+            
+            products.forEach(member => {
+                const memberDiv = document.createElement("div");
+                memberDiv.classList.add("col-md-3", "team-member", "mb-4");
+                memberDiv.setAttribute("data-product-id", member.id);
+                
+                memberDiv.innerHTML = `
+                    <img src="${member.image}" alt="${member.name}" loading="lazy">
+                    <div class="overlay">
+                        <h4>${member.name}</h4>
+                        <p>${member.role}</p>
+                    </div>
+                `;
+                
+                memberDiv.addEventListener('click', () => {
+                    handleProductClick(member);
+                });
+                
+                fragment.appendChild(memberDiv);
+            });
+            
+            teamContainer.appendChild(fragment);
+        }
+
+        function handleProductClick(product) {
+            console.log(`Product clicked: ${product.name}`);
+        }
+
+        function lazyLoadImages() {
+            const images = document.querySelectorAll('img');
+            
+            if ('loading' in HTMLImageElement.prototype) {
+                images.forEach(img => {
+                    if (!img.hasAttribute('loading')) {
+                        img.setAttribute('loading', 'lazy');
+                    }
+                });
+            } else {
+            }
+        }
+    </script>
+</body>
+
+</html>

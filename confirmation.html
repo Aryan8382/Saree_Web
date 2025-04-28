@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Bill - Kapaaha</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-repeat: no-repeat;
+        }
+        
+        .bill-container {
+            width: 210mm;
+            max-width: 100%;
+            margin: 30px auto;
+            padding: 18mm;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.801);
+        }
+        
+        .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+        
+        .shop-name {
+            font-size: 36px;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+        
+        .shop-name::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            border-radius: 2px;
+        }
+        
+        .bill-tag {
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(16, 185, 129, 0.1);
+        }
+        
+        .bill-tag i {
+            margin-right: 6px;
+        }
+        
+        .info-section {
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.422);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 8px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .info-item {
+            margin-bottom: 8px;
+        }
+        
+        .info-label {
+            font-size: 13px;
+            margin-bottom: 4px;
+            display: block;
+        }
+        
+        .info-value {
+            font-weight: 500;
+            font-size: 15px;
+        }
+        
+        .table {
+            margin-top: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.244);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        
+        .table th {
+            color: rgb(0, 0, 0);
+            font-weight: 600;
+            padding: 14px;
+            border: none;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+        
+        .table td {
+            padding: 14px;
+            vertical-align: middle;
+        }
+        
+        
+        .total-section {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .grand-total {
+            font-size: 22px;
+            font-weight: 700;
+        }
+        
+        .btn-print {
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-print:hover {
+            color: rgb(255, 0, 0);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3);
+        }
+        
+        .badge-payment {
+            color: #ef4444;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .badge-payment i {
+            margin-right: 5px;
+        }
+        
+        .bill-footer {
+            margin-top: 30px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px dashed;
+        }
+        
+        .thank-you {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .contact-info {
+          
+            font-size: 14px;
+        }
+        
+        @media print {
+            .btn-print {
+                display: none;
+            }
+            .bill-container {
+                box-shadow: none;
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+        .item-name {
+            font-weight: 500;
+        }
+        
+        .item-price {
+            font-weight: 500;
+           
+        }
+        
+        .item-total {
+            font-weight: 600;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container bill-container">
+        <div class="brand-header">
+            <h2 class="shop-name">Kapaaha</h2>
+            <div class="bill-tag">
+                <i class="fas fa-receipt"></i> Invoice
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div class="section-title">
+                <i class="fas fa-file-invoice"></i> Order Information
+            </div>
+            <div class="info-grid">
+                <div>
+                    <div class="info-item">
+                        <span class="info-label">Invoice Number</span>
+                        <div class="info-value" id="billNo"></div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Order Date</span>
+                        <div class="info-value" id="orderDate"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="info-item">
+                        <span class="info-label">Payment Method</span>
+                        <div class="badge-payment" id="paymentMethodBadge">
+                            <i class="fas fa-credit-card"></i> <span id="paymentMethod"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div class="section-title">
+                <i class="fas fa-user-circle"></i> Customer Details
+            </div>
+            <div class="info-grid">
+                <div>
+                    <div class="info-item">
+                        <span class="info-label">Customer Name</span>
+                        <div class="info-value" id="customerName"></div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Email Address</span>
+                        <div class="info-value" id="customerEmail"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="info-item">
+                        <span class="info-label">Shipping Address</span>
+                        <div class="info-value" id="customerAddress"></div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Location</span>
+                        <div class="info-value"><span id="customerState"></span>, <span id="customerCountry"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <i class="fas fa-shopping-cart"></i> Order Summary
+        </div>
+        <table class="table tbl1">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="orderItems"></tbody>
+        </table>
+
+        <div class="total-section">
+            <div class="grand-total">Grand Total: ₹<span id="grandTotal"></span></div>
+            <button onclick="window.print()" class="btn btn-print">
+                <i class="fas fa-print"></i> Print Invoice
+            </button>
+        </div>
+
+        <div class="bill-footer">
+            <div class="thank-you">Thank you for your purchase!</div>
+            <div class="contact-info">
+                For any queries, please contact support@kapaaha.com | +91 1234567890
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const billData = JSON.parse(localStorage.getItem("currentBill"));
+            if (!billData) {
+                alert("No bill data found!");
+                return;
+            }
+
+            document.getElementById("billNo").textContent = billData.orderId;
+            document.getElementById("orderDate").textContent = new Date(billData.orderDate).toLocaleString();
+            document.getElementById("customerName").textContent = billData.customer.name;
+            document.getElementById("customerEmail").textContent = billData.customer.email || "N/A";
+            document.getElementById("customerAddress").textContent = billData.customer.address;
+            document.getElementById("customerCountry").textContent = billData.customer.country;
+            document.getElementById("customerState").textContent = billData.customer.state;
+            document.getElementById("paymentMethod").textContent = billData.payment.method;
+            document.getElementById("grandTotal").textContent = billData.payment.total;
+            
+            const orderItemsContainer = document.getElementById("orderItems");
+            billData.items.forEach(item => {
+                const row = `<tr>
+                    <td class="item-name">${item.name}</td>
+                    <td>${item.quantity}</td>
+                    <td class="item-price">₹${item.price}</td>
+                    <td class="item-total">₹${(item.price * item.quantity).toFixed(2)}</td>
+                </tr>`;
+                orderItemsContainer.innerHTML += row;
+            });
+        });
+    </script>
+</body>
+</html>
