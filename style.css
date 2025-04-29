@@ -666,86 +666,467 @@ header {
         padding: 10px;
     }
 }
-
 footer {
-    color: black;
-    margin-top: 50px;
-    border: 120px solid rgb(255, 255, 255);
-    border-image: url("/images/footer_bg.png");
-    border-image-slice: 100;
-    border-image-width: 70px 70px 70px 70px;
-    margin-right: -2px;
+    border: 25px solid transparent;
+    border-image: url(/images/footer_bg.png) 35 round;
+    border-image-slice: 35 fill;
+    border-image-repeat: round;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .footer-top {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #444;
-}
-
-.footer-about {
-    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
 .footer-about h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.footer-about p {
-    font-size: 18px;
-    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    color: #333;
 }
 
 .footer-links {
-    width: 40%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    gap: 0.8rem;
 }
 
 .footer-links h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
+    font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+    margin-bottom: 1rem;
+    color: #333;
 }
 
 .footer-links a {
-    display: block;
-    color: #000000;
+    color: #666;
     text-decoration: none;
-    font-size: 18px;
-    margin-bottom: 10px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
+    position: relative;
+    padding-left: 1rem;
+    width: fit-content;
+}
+
+.footer-links a:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: #ff0000;
+    color: #333;
+    padding-left: 1.5rem;
 }
 
-.footer-bottom {
-    text-align: center;
-    padding-top: 30px;
+.footer-links a:hover:before {
+    opacity: 1;
 }
 
+/* Ensure text wraps nicely inside narrow screens */
+.footer-about p {
+    font-size: clamp(0.9rem, 1vw, 1rem);
+    color: #555;
+    line-height: 1.6;
+    max-width: 100%;
+    word-break: break-word;
+    margin-bottom: 0.5rem;
+}
+
+/* Allow social icons to wrap and center on very narrow screens */
 .footer-social {
-    margin-bottom: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 1rem;
 }
-
 .footer-social a {
-    color: #000000;
-    font-size: 24px;
-    margin: 0 15px;
-    transition: 0.3s;
+    color: #666;
+    font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+    transition: all 0.3s ease;
 }
 
 .footer-social a:hover {
-    color: #ff0000;
+    color: #333;
+    transform: translateY(-3px) scale(1.1);
 }
 
 .footer-copy {
-    font-size: 16px;
-    opacity: 0.8;
+    text-align: center;
+    color: #666;
+    font-size: clamp(0.8rem, 1vw, 0.9rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(102, 102, 102, 0.1);
+}
+
+@media (max-width: 992px) {
+    footer {
+        padding: 2.5rem 1.5rem;
+        border-width: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 2rem 1rem;
+        border-width: 15px;
+        margin-top: 3rem;
+    }
+
+    .footer-top {
+        text-align: center;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+
+    .footer-links a {
+        padding-left: 0;
+    }
+
+    .footer-links a:before {
+        display: none;
+    }
+
+    .footer-links a:hover {
+        padding-left: 0;
+        transform: scale(1.1);
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 1.5rem 0.75rem;
+        border-width: 10px;
+        margin-top: 2rem;
+        border-image-repeat: stretch;
+        border-image-slice: 30;
+    }
+}
+
+/* Better alignment on very small devices */
+@media (max-width: 380px) {
+    .footer-about h2 {
+        font-size: 1.2rem;
+    }
+
+    .footer-links h3 {
+        font-size: 1rem;
+    }
+
+    .footer-links a {
+        font-size: 0.9rem;
+    }
+
+    .footer-copy {
+        font-size: 0.75rem;
+    }
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+    .nav-icon {
+        left: 70%;
+    }
+    
+    .container {
+        width: 90%;
+    }
+    
+    .section1 {
+        min-height: 60vh;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .nav-icon {
+        left: 60%;
+    }
+    
+    .full_wrap {
+        margin-top: -100px;
+    }
+    
+    .section1 {
+        min-height: 50vh;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .description {
+        font-size: 1rem;
+    }
+    
+    .containimg {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .text-content {
+        max-width: 100%;
+        padding: 20px;
+    }
+    
+  
+}
+@media (max-width: 768px) {
+    .mobile-img {
+        max-width: 80px;
+        height: auto;
+    }
+    .text-overlay {
+        font-size: 12px;
+    }
+    .image-box {
+        min-width: 120px;
+        padding: 30px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .nav-icon {
+        left: 50%;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .navbar {
+        flex-direction: column;
+    }
+    
+    .nav-menu {
+        display: none;
+        width: 100%;
+    }
+    
+    .nav-menu.open {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .full_wrap {
+        margin-top: -50px;
+    }
+    
+    .section1 {
+        min-height: 40vh;
+        padding: 20px;
+    }
+    
+    .title {
+        font-size: 1.5rem;
+    }
+    
+    .description {
+        font-size: 0.9rem;
+    }
+    
+    .kapaaha {
+        margin-top: -50px;
+    }
+    
+    .section2 {
+        padding: 20px;
+    }
+    
+    .section3 {
+        padding: 20px;
+    }
+    
+}
+
+@media screen and (max-width: 576px) {
+    .nav-icon {
+        left: 40%;
+    }
+    
+    .header1 {
+        font-size: 14px;
+    }
+    
+    .full_wrap {
+        margin-top: -150px;
+    }
+    
+    .section1 {
+        min-height: 30vh;
+        padding: 15px;
+        margin-top: -230px;
+    }
+    
+    .title {
+        font-size: 1.2rem;
+    }
+    
+    .description {
+        font-size: 0.8rem;
+    }
+    
+    .image-box {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+}
+
+@media screen and (max-width: 480px) {
+    .nav-icon {
+        left: 30%;
+    }
+    
+    .qwe {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .section1 {
+        min-height: 25vh;
+    }
+    
+    .title {
+        font-size: 1rem;
+    }
+    
+    .description {
+        font-size: 0.7rem;
+    }
+    
+    .section2 .about {
+        font-size: 1.5rem;
+    }
+    
+    .text-content h2 {
+        font-size: 1.2rem;
+    }
+    
+    .text-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Responsive Navigation */
+@media screen and (max-width: 768px) {
+    nav {
+        padding: 10px;
+    }
+    
+    nav ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        display: none;
+    }
+    
+    nav ul.open {
+        display: flex;
+    }
+    
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        padding: 15px;
+        display: block;
+    }
+    
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+/* Responsive Cart */
+@media screen and (max-width: 768px) {
+    .cart-icon {
+        margin-left: 10px;
+    }
+    
+    .cart-count {
+        font-size: 12px;
+        padding: 2px 5px;
+    }
+}
+
+
+/* Responsive Images */
+@media screen and (max-width: 768px) {
+    .respo-img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .swiper-slide img {
+        height: auto;
+    }
+}
+
+/* Responsive Containers */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .section1, .section2, .section3 {
+        padding: 15px;
+    }
+}
+
+/* Responsive Typography */
+@media screen and (max-width: 768px) {
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.2em;
+    }
+    
+    p {
+        font-size: 0.9em;
+    }
+}
+
+/* Responsive Buttons */
+@media screen and (max-width: 768px) {
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    
+    .btn-checkout {
+        width: 100%;
+    }
+}
+
+/* Responsive Forms */
+@media screen and (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px;
+        padding: 8px;
+    }
+    
+    .form-control {
+        width: 100%;
+    }
 }
