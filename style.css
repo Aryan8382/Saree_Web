@@ -19,7 +19,6 @@ body {
     font-weight: 600;
     font-size: 18px;
 }
-
 html {
     scroll-behavior: smooth;
 }
@@ -48,6 +47,7 @@ html {
     scrollbar-width: thin;
     scrollbar-color: #d4af37 #111;
 }
+
 
 header,
 nav {
@@ -90,7 +90,7 @@ nav ul li {
 
 nav ul li a {
     display: block;
-    color: #70503b; /* Kapaaha brown text color */
+    color: hsl(26deg, 43%, 23%);
     padding: 0 10px;
     text-decoration: none;
     font-size: 17px;
@@ -101,7 +101,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #d4a373; /* Lighter brown on hover */
+    color: #d4a373;
 }
 
 .menu-toggle {
@@ -143,7 +143,7 @@ nav ul li a:hover {
     position: absolute;
     top: 0px;
     right: -5px;
-    background-color: #cb997e; /* Kapaaha accent brown */
+    background-color: #ff0000;
     color: #ffffff;
     font-size: 14px;
     font-weight: bold;
@@ -228,6 +228,7 @@ a {
     padding-top: 10px;
 }
 
+
 .title {
     font-size: xx-large;
     padding: 20px 0;
@@ -303,10 +304,13 @@ header {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 80vh;
+    /* min-height: 0vh; */
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+    text-align: center;
+    
 }
 
 .section1 .container {
@@ -317,31 +321,33 @@ header {
     font-size: 1.3rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: #70503b; /* Kapaaha brown text */
+    color: hsl(22deg, 40%, 24%);
     letter-spacing: 0.2em;
     line-height: 1.4;
-    margin-top: 10px;
+    margin-top: -100px;
 }
 
 .description {
-    font-size: 1.2rem;
-    color: #70503b; /* Kapaaha brown text */
-    line-height: 1.6;
+    font-size: 1rem;
+    color: hsl(25deg, 38%, 24%);
+    
 }
 
 @media (max-width: 1024px) {
     .section1 {
         min-height: 75vh;
         padding: 40px;
-        margin-top: -107px;
+        margin-top: -645px;
     }
 
     .title {
         font-size: 2rem;
+        text-align: center;
     }
 
     .description {
-        font-size: 1.1rem;
+        font-size: 1.5rem;
+        text-align: center;
     }
 }
 
@@ -349,7 +355,7 @@ header {
     .section1 {
         min-height: 60vh;
         padding: 30px;
-        margin-top: -10px;
+        margin-top: -257px;
     }
 
     .title {
@@ -365,17 +371,59 @@ header {
     .section1 {
         min-height: 50vh;
         padding: 20px;
-        margin-top: -210px;
+        margin-top: -300px;
     }
 
     .title {
-        font-size: 1rem;
+        font-size: 0.8rem;
         letter-spacing: 0.1em;
         line-height: 1.3;
+        text-align: center;
     }
 
     .description {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .section1 {
+        min-height: 50vh;
+        padding: 20px;
+        margin-top: -389px;
+    }
+
+    .title {
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        line-height: 1.3;
+        text-align: center;
+    }
+
+    .description {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        padding: 0 10px;
+    }
+}
+@media (max-width: 375px) {
+    .section1 {
+        min-height: 50vh;
+        padding: 20px;
+        margin-top: -389px;
+    }
+
+    .title {
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        line-height: 1.3;
+        text-align: center;
+    }
+
+    .description {
+        font-size: 0.9rem;
         line-height: 1.4;
         padding: 0 10px;
     }
@@ -409,28 +457,20 @@ header {
 
 @media (max-width: 768px) {
     .container {
-        margin-top: 60px;
+        margin-top: 100px;
         padding: 20px;
     }
 
     .section3 h2 {
         font-size: 1.8rem;
         text-align: center;
-        margin-left: 120px;
+        /* margin-left: 120px; */
     }
 
     .para {
         font-size: 1rem;
         line-height: 1.7;
-        margin-left: 70px;
-    }
-}
-
-@media (min-width: 375px) {
-    .section1 {
-        min-height: 50vh;
-        padding: 20px;
-        margin-top: -260px !important;
+        /* margin-left: 70px; */
     }
 }
 
@@ -453,7 +493,7 @@ header {
 
 .kapaaha {
     text-align: center;
-    margin-top: -100px;
+    margin-top: -230px;
 }
 
 .kapaaha img {
@@ -484,25 +524,31 @@ header {
 }
 
 .section2 {
-    color: #a29d9a; /* Soft gray */
+    color: #a29d9a;
     font-size: 18px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .section2 .about {
-    color: #70503b; /* Kapaaha brown */
-    font-size: xx-large;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    color: #330202a7;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-align: center;
 }
 
 .containimg {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 40px;
     flex-wrap: wrap;
-    padding: 20px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .containimg:nth-child(odd) {
@@ -514,53 +560,41 @@ header {
     max-width: 500px;
     height: auto;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.respo-img:hover {
+    transform: scale(1.02);
 }
 
 .text-content {
     max-width: 500px;
     text-align: left;
+    padding: 20px;
 }
 
 .text-content h2 {
-    font-size: 24px;
-    color: #b08968; /* Kapaaha medium brown */
+    font-size: 2rem;
+    color: rgba(118, 35, 35, 0.824);
+    margin-bottom: 20px;
 }
 
 .text-content p {
-    font-size: 16px;
-    color: #70503b; /* Kapaaha dark brown */
-    line-height: 1.6;
+    font-size: 1.1rem;
+    color: rgb(61, 33, 33);
+    line-height: 1.8;
+    margin-bottom: 15px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .containimg {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-align: center;
-    }
-
-    .containimg img {
-        max-width: 50%;
-        height: auto;
-    }
-
-    .text-content {
-        padding: 10px;
-    }
-}
-
-@media (max-width: 768px) {
-    .containimg {
-        flex-direction: column;
-    }
-
-    .containimg {
-        width: 100%;
+        gap: 30px;
+        padding: 30px 15px;
     }
 
     .text-content h2 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .text-content p {
@@ -568,13 +602,62 @@ header {
     }
 }
 
-@media (max-width: 480px) {
-    .containimg {
-        padding: 10px;
+@media (max-width: 992px) {
+    .section2 .about {
+        font-size: 2rem;
     }
 
     .containimg {
-        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .text-content {
+        text-align: center;
+        padding: 15px;
+    }
+
+    .text-content h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section2 {
+        padding: 15px;
+    }
+
+    .section2 .about {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .containimg {
+        padding: 20px 10px;
+    }
+
+    .text-content h2 {
+        font-size: 1.4rem;
+    }
+
+    .text-content p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 480px) {
+    .section2 .about {
+        font-size: 1.5rem;
+    }
+
+    .containimg {
+        padding: 15px 5px;
+    }
+
+    .text-content {
+        padding: 10px;
     }
 
     .text-content h2 {
@@ -583,573 +666,573 @@ header {
 
     .text-content p {
         font-size: 0.9rem;
+        line-height: 1.5;
     }
 }
 
-
-.container-fluid {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-/* Image Container Section */
 .image-container {
-    /* background: linear-gradient(135deg, #fcf1ec, #f8e4d8); Kapaaha gradient */
-    padding: 3rem 0;
-    margin: 2rem 0;
-    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
-    /* border-radius: 8px; */
-}
-
-.row {
     display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-}
-
-.justify-content-center {
-    justify-content: center;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.overflow-auto {
-    overflow: auto;
-}
-
-.flex-nowrap {
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin: 30px auto;
+    padding: 15px;
+    max-width: 1200px;
     flex-wrap: nowrap;
 }
 
-.col-3 {
-    position: relative;
-    width: 25%;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-
-.mb-4 {
-    margin-bottom: 1.5rem;
-}
-
-/* Image Box Styling */
 .image-box {
     position: relative;
-    /* transition: all 0.3s ease; */
-    padding: 1.5rem;
-    border-radius: 8px;
-    /* background-color: white; */
-    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
-    margin: 0 10px;
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    min-width: 0; /* Allow box to shrink below min-content */
 }
 
-.img-fluid {
-    max-width: 100%;
+.image-box img {
+    width: 100%;
     height: auto;
-}
-
-.mobile-img {
-    border-radius: 50%;
-    padding: 12px;
-    border: 3px dashed #ddb892; /* Kapaaha light brown */
-    transition: all 0.3s ease;
-}
-
-.image-box:hover .mobile-img {
-    border-color: #b08968; /* Kapaaha medium brown */
+    max-width: 80px;
+    margin: 0 auto;
+    display: block;
 }
 
 .text-overlay {
-    margin-top: 1rem;
-    font-weight: 600;
-    color: #70503b; /* Kapaaha dark brown */
+    position: relative;
+    margin-top: 8px;
+    color: #333;
     font-size: 0.9rem;
-    line-height: 1.4;
+    line-height: 1.3;
+    font-weight: 500;
+    white-space: normal;
 }
 
-/* Main Content Section */
+/* Large Desktop Screens */
+@media (min-width: 1200px) {
+    .image-container {
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .image-box img {
+        max-width: 100px;
+    }
+
+    .text-overlay {
+        font-size: 1rem;
+    }
+}
+
+/* Desktop Screens */
+@media (max-width: 1199px) {
+    .image-container {
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .image-box img {
+        max-width: 90px;
+    }
+}
+
+/* Laptop Screens */
+@media (max-width: 991px) {
+    .image-container {
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .image-box img {
+        max-width: 80px;
+    }
+
+    .text-overlay {
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablet Screens */
+@media (max-width: 767px) {
+    .image-container {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .image-box img {
+        max-width: 70px;
+    }
+
+    .text-overlay {
+        font-size: 0.85rem;
+        margin-top: 6px;
+    }
+}
+
+/* Mobile Screens */
+@media (max-width: 575px) {
+    .image-container {
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .image-box img {
+        max-width: 60px;
+    }
+
+    .text-overlay {
+        font-size: 0.75rem;
+        margin-top: 5px;
+        line-height: 1.2;
+    }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 375px) {
+    .image-container {
+        gap: 5px;
+        padding: 5px;
+    }
+
+    .image-box img {
+        max-width: 50px;
+    }
+
+    .text-overlay {
+        font-size: 0.7rem;
+        margin-top: 4px;
+    }
+}
+
+.paragraph {
+    margin-top: 80px;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
 .section3 {
-    padding: 2rem;
-    /* background-color: white; */
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin: 2rem auto;
+    text-align: start;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
 }
 
 .section3 h2 {
-    color: #b08968; /* Kapaaha medium brown */
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
-    position: relative;
-    padding-bottom: 15px;
+    margin-bottom: 20px;
+    color: #330202b9;
+    text-align: start;
+    font-size: 2rem;
+    line-height: 1.4;
 }
 
-.section3 h2:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(to right, #ddb892, #b08968, #ddb892); /* Kapaaha gradient */
-    border-radius: 3px;
+.section3 .para {
+    font-size: 1.1rem;
+    letter-spacing: 1.5;
+    color: #353535ac;
+    line-height: 1.8;
+    margin-bottom: 30px;
 }
 
-.para {
-    margin-bottom: 1.5rem;
-    color: #70503b; /* Kapaaha dark brown */
-    font-size: 1rem;
-    text-align: justify;
+/* Large Desktop (1024px and above) */
+@media (min-width: 1024px) {
+    .section3 {
+        padding: 30px;
+    }
+
+    .section3 h2 {
+        font-size: 2.2rem;
+    }
+
+    .section3 .para {
+        font-size: 1.2rem;
+    }
 }
 
-/* Footer Section */
+/* Desktop (768px to 1023px) */
+@media (max-width: 1023px) {
+    .paragraph {
+        margin-top: 60px;
+        padding: 0 15px;
+    }
+
+    .section3 {
+        padding: 20px;
+    }
+
+    .section3 h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .section3 .para {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+}
+
+/* Tablet (468px to 767px) */
+@media (max-width: 767px) {
+    .paragraph {
+        margin-top: 40px;
+        padding: 0 10px;
+    }
+
+    .section3 {
+        padding: 15px;
+    }
+
+    .section3 h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .section3 .para {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+}
+
+/* Mobile (300px to 467px) */
+@media (max-width: 467px) {
+    .paragraph {
+        margin-top: 30px;
+        padding: 0 8px;
+    }
+
+    .section3 {
+        padding: 10px;
+    }
+
+    .section3 h2 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+
+    .section3 .para {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+}
+
+/* Small Mobile (below 300px) */
+@media (max-width: 299px) {
+    .paragraph {
+        margin-top: 20px;
+        padding: 0 5px;
+    }
+
+    .section3 {
+        padding: 8px;
+    }
+
+    .section3 h2 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    .section3 .para {
+        font-size: 0.8rem;
+        line-height: 1.4;
+        margin-bottom: 12px;
+    }
+}
+
 footer {
-    background-color: #70503b; /* Kapaaha dark brown */
-    color: #ffffff;
-    padding: 3rem 0 1rem;
-    margin-top: 3rem;
+    color: black;
+    margin-top: 50px;
+    border: 120px solid rgb(255, 255, 255);
+    border-image: url("/images/footer_bg.png");
+    border-image-slice: 100;
+    border-image-width: 70px 70px 70px 70px;
+    margin-right: -2px;
     position: relative;
-    overflow: hidden;
-}
-
-footer:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(to right, #b08968, #ddb892, #b08968); /* Kapaaha gradient */
 }
 
 .footer-container {
-    width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 20px;
 }
 
 .footer-top {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 2rem;
+    gap: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #444;
 }
 
 .footer-about {
     flex: 1;
     min-width: 250px;
-    margin-bottom: 1.5rem;
 }
 
 .footer-about h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: #ddb892; /* Kapaaha light brown */
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #333;
 }
 
 .footer-about p {
-    font-size: 0.8rem;
-    color: #f8e4d8; /* Very light Kapaaha color */
-    letter-spacing: 1px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
 }
 
 .footer-links {
-    flex: 1;
-    min-width: 250px;
-    display: flex;
-    flex-direction: column;
+    flex: 0 0 200px;
 }
 
 .footer-links h3 {
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-    color: #ddb892; /* Kapaaha light brown */
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.footer-links h3:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background-color: #b08968; /* Kapaaha medium brown */
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
 }
 
 .footer-links a {
-    color: #ffffff;
+    display: block;
+    color: #000000;
     text-decoration: none;
-    margin-bottom: 0.8rem;
-    transition: all 0.3s ease;
-    position: relative;
-    padding-left: 15px;
-}
-
-.footer-links a:before {
-    content: "›";
-    position: absolute;
-    left: 0;
-    color: #ddb892; /* Kapaaha light brown */
-    font-size: 1.2rem;
-    line-height: 1;
+    font-size: 18px;
+    margin-bottom: 10px;
+    transition: 0.3s;
 }
 
 .footer-links a:hover {
-    color: #ddb892; /* Kapaaha light brown */
-    padding-left: 20px;
+    color: #ff0000;
+    transform: translateX(5px);
 }
 
 .footer-bottom {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 1.5rem;
+    text-align: center;
+    padding-top: 30px;
 }
 
 .footer-social {
-    margin-bottom: 1.5rem;
+    margin-bottom: 20px;
 }
 
 .footer-social a {
+    color: #000000;
+    font-size: 24px;
+    margin: 0 15px;
+    transition: 0.3s;
     display: inline-block;
-    width: 36px;
-    height: 36px;
-    background-color: #593d2b; /* Darker Kapaaha brown */
-    color: #ffffff;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 36px;
-    margin: 0 5px;
-    transition: all 0.3s ease;
 }
 
 .footer-social a:hover {
-    background-color: #b08968; /* Kapaaha medium brown */
+    color: #ff0000;
     transform: translateY(-3px);
 }
 
 .footer-copy {
-    font-size: 0.8rem;
-    color: #f8e4d8; /* Very light Kapaaha color */
+    font-size: 16px;
+    opacity: 0.8;
+    color: #666;
 }
 
-/* Responsive Styles */
-@media (max-width: 1200px) {
-    .section3 {
-        width: 80%;
+/* Large Desktop (1024px and above) */
+@media (min-width: 1024px) {
+    .footer-container {
+        padding: 30px;
     }
+
+    .footer-top {
+        gap: 40px;
+    }
+}
+
+/* Desktop (768px to 1023px) */
+@media (max-width: 1023px) {
+    footer {
+        border-width: 80px;
+        border-image-width: 50px 50px 50px 50px;
+    }
+
+    .footer-container {
+        padding: 25px;
+    }
+
+    .footer-about h2 {
+        font-size: 24px;
+    }
+
+    .footer-about p {
+        font-size: 16px;
+    }
+
+    .footer-links h3 {
+        font-size: 20px;
+    }
+
+    .footer-links a {
+        font-size: 16px;
+    }
+}
+
+/* Tablet (468px to 767px) */
+@media (max-width: 767px) {
+    footer {
+        border-width: 60px;
+        border-image-width: 40px 40px 40px 40px;
+        margin-top: 30px;
+    }
+
+    .footer-container {
+        padding: 20px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .footer-about {
+        min-width: 100%;
+    }
+
+    .footer-links {
+        flex: 1;
+        width: 100%;
+    }
+
+    .footer-links a {
+        margin-bottom: 8px;
+    }
+
+    .footer-social a {
+        font-size: 20px;
+        margin: 0 10px;
+    }
+}
+
+/* Mobile (300px to 467px) */
+@media (max-width: 467px) {
+    footer {
+        border-width: 40px;
+        border-image-width: 30px 30px 30px 30px;
+        margin-top: 20px;
+    }
+
+    .footer-container {
+        padding: 15px;
+    }
+
+    .footer-about h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .footer-about p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .footer-links h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .footer-social {
+        margin-bottom: 15px;
+    }
+
+    .footer-social a {
+        font-size: 18px;
+        margin: 0 8px;
+    }
+
+    .footer-copy {
+        font-size: 14px;
+    }
+}
+
+/* Small Mobile (below 300px) */
+@media (max-width: 299px) {
+    footer {
+        border-width: 30px;
+        border-image-width: 20px 20px 20px 20px;
+        margin-top: 15px;
+    }
+
+    .footer-container {
+        padding: 10px;
+    }
+
+    .footer-about h2 {
+        font-size: 20px;
+    }
+
+    .footer-about p {
+        font-size: 13px;
+    }
+
+    .footer-links h3 {
+        font-size: 16px;
+    }
+
+    .footer-links a {
+        font-size: 13px;
+    }
+
+    .footer-social a {
+        font-size: 16px;
+        margin: 0 6px;
+    }
+
+    .footer-copy {
+        font-size: 12px;
+    }
+}
+
+.about-intro {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.image-wrapper {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 @media (max-width: 992px) {
-    .col-3 {
-        width: 50%;
-        margin-bottom: 20px;
-    }
-    
-    .flex-nowrap {
-        flex-wrap: wrap;
-    }
-    
-    .section3 {
-        width: 90%;
-    }
-    
-    .section3 h2 {
-        font-size: 1.6rem;
+    .about-intro {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
     }
 }
 
 @media (max-width: 768px) {
-    .image-container {
-        padding: 2rem 0;
-    }
-    .section1{
-        margin-top: 0px !important;
+    .about-intro {
+        font-size: 1rem;
+        margin-bottom: 25px;
     }
     
-    .image-box {
-        padding: 1rem;
+    .image-wrapper {
+        min-width: 250px;
     }
-    
-    .section3 {
-        padding: 1.5rem;
-    }
-    
-    .section3 h2 {
-        font-size: 1.4rem;
-    }
-    
-    .para {
+}
+
+@media (max-width: 480px) {
+    .about-intro {
         font-size: 0.9rem;
+        margin-bottom: 20px;
     }
     
-    .footer-top {
-        flex-direction: column;
-    }
-    
-    .footer-about, .footer-links {
-        margin-bottom: 2rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .col-3 {
-        width: 100%;
-    }
-    
-    .image-box {
-        margin: 0 0 20px;
-    }
-    
-    .section3 h2 {
-        font-size: 1.3rem;
-    }
-    
-    .footer-social a {
-        width: 32px;
-        height: 32px;
-        line-height: 32px;
-        margin: 0 3px;
-    }
-}
-
-/* Ultra Small Screens (300px width) */
-@media (max-width: 350px) {
-    .container-fluid {
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-    
-    .image-container {
-        padding: 1rem 0;
-    }
-    
-    .image-box {
-        padding: 0.75rem;
-        margin: 0 0 15px;
-    }
-    
-    .mobile-img {
-        padding: 8px;
-        border-width: 2px;
-    }
-    
-    .text-overlay {
-        margin-top: 0.5rem;
-        font-size: 0.75rem;
-        line-height: 1.2;
-    }
-    
-    .section3 {
-        padding: 2rem !important;
-        margin: 1rem auto;
-    }
-    
-    .section3 h2 {
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
-        padding-bottom: 10px;
-    }
-    
-    .section3 h2:after {
-        width: 60px;
-        height: 2px;
-    }
-    
-    .para {
-        margin-bottom: 1rem;
-        font-size: 0.8rem;
-    }
-    
-    .footer-container {
-        width: 95%;
-        padding: 0 10px;
-    }
-    
-    .footer-about h2 {
-        font-size: 1.5rem;
-    }
-    
-    .footer-about p {
-        font-size: 0.7rem;
-    }
-    
-    .footer-links h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.8rem;
-    }
-    
-    .footer-links a {
-        font-size: 0.8rem;
-        margin-bottom: 0.6rem;
-    }
-    
-    .footer-social a {
-        width: 28px;
-        height: 28px;
-        line-height: 28px;
-        margin: 0 2px;
-    }
-    
-    .footer-copy {
-        font-size: 0.7rem;
-    }
-}
-
-/* Media Query specifically for screens between 300px and 400px */
-@media (min-width: 300px) and (max-width: 400px) {
-    /* Navigation adjustments */
-    nav ul li a {
-        font-size: 14px;
-        padding: 0 5px;
-        letter-spacing: 1px;
-    }
-    
-    .menu-toggle {
-        font-size: 24px;
-        top: -5px;
-        right: 5px;
-    }
-    
-    /* Section 1 adjustments */
-    .section1 {
-        min-height: 45vh;
-        padding: 15px;
-        margin-top: -240px !important;
-    }
-    
-    .title {
-        font-size: 0.9rem;
-        letter-spacing: 0.08em;
-        line-height: 1.2;
-    }
-    
-    .description {
-        font-size: 0.65rem;
-        line-height: 1.3;
-        padding: 0 5px;
-    }
-    
-    /* Section 2 & 3 adjustments */
-    .container {
-        margin-top: 40px;
-        padding: 10px 5px;
-    }
-    
-    .section2 {
-        font-size: 16px;
-    }
-    
-    .section2 .about {
-        font-size: x-large;
-        margin-bottom: 15px;
-        margin-top: 15px;
-    }
-    
-    .section3 {
-        width: 95%;
-        padding: 0.85rem;
-    }
-    
-    .section3 h2 {
-        font-size: 1.2rem;
-        margin-left: 0;
-        text-align: center;
-    }
-    
-    .para {
-        font-size: 0.85rem;
-        line-height: 1.5;
-        margin-left: 0;
-    }
-    
-    /* Image boxes adjustments */
-    .image-box {
-        padding: 0.8rem;
-        margin-bottom: 12px;
-    }
-    
-    .mobile-img {
-        padding: 10px;
-        border: 2px dashed #ddb892;
-    }
-    
-    .text-overlay {
-        margin-top: 0.7rem;
-        font-size: 0.72rem;
-    }
-    
-    /* Content container adjustments */
-    .containimg {
-        padding: 10px 5px;
-        gap: 15px;
-    }
-    
-    .text-content h2 {
-        font-size: 1.1rem;
-    }
-    
-    .text-content p {
-        font-size: 0.85rem;
-    }
-    
-    .respo-img {
-        max-width: 100%;
-    }
-    
-    /* Footer adjustments */
-    footer {
-        padding: 2rem 0 0.8rem;
-        margin-top: 2rem;
-    }
-    
-    .footer-container {
-        padding: 0 8px;
-    }
-    
-    .footer-about h2 {
-        font-size: 1.3rem;
-        margin-bottom: 0.4rem;
-    }
-    
-    .footer-about p {
-        font-size: 0.75rem;
-    }
-    
-    .footer-links h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.7rem;
-        padding-bottom: 8px;
-    }
-    
-    .footer-links a {
-        margin-bottom: 0.65rem;
-        font-size: 0.8rem;
-    }
-    
-    .footer-social a {
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        margin: 0 3px;
-    }
-    
-    .footer-copy {
-        font-size: 0.7rem;
+    .image-wrapper {
+        min-width: 200px;
     }
 }
